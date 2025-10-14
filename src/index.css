@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+body {
+    font-family: "Nunito" , "Sans-serif";
+}
+
+@theme {
+  --color-primary-red: #CA2323;
+  --color-primary-orange: #E45E14;
+  --gradient-primary: linear-gradient(to bottom, var(--color-primary-orange), var(--color-primary-red));
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
