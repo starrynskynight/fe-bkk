@@ -1,118 +1,126 @@
-import NavbarDesktop from "./components/NavbarDekstop";
-import NavbarDrawer from "./components/NavbarDrawer";
-import Button from "../common/Button";
-import { MENU_ITEMS } from "./helper/NavItems";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react"; 
-import { useLocation } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Home } from "lucide-react";
+import { GrGallery } from "react-icons/gr";
+import { BsPersonWorkspace } from "react-icons/bs";
+import { MdInfo } from "react-icons/md";
+
+
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
     setOpenDropdown(false);
   }, [location]);
 
+  const infoItems = [
+    { id: 1, label: "Berita", icon: <Home/>, route: "/berita" },
+    { id: 2, label: "Gallery", icon: <GrGallery />, route: "/gallery" },
+    { id: 3, label: "Mitra Kerja", icon: <BsPersonWorkspace />, route: "/mitra-kerja" },
+    { id: 4, label: "Tentang Kami", icon: <MdInfo />, route: "/tentang" },
+  ];
+
   return (
-    <nav className="w-full bg-white sticky top-0 z-[1000] relative">
-      <div className="flex items-center justify-between w-full p-4">
-        <div className="flex items-center">
-          <img src="/images/logo.png" alt="Mi Jurnal" className="h-8 w-auto" />
+    <nav className="font-[Poppins] w-full bg-[#0B1B48] sticky top-0 z-[1000] relative">
+      <div className="flex items-center justify-between px-8 py-3">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <img src="/images/logo-bkk.png" alt="Logo BKK" className="h-10 w-auto" />
+          <span className="text-white font-semibold text-lg">
+            BKK SMKN 1 PURWOSARI
+          </span>
         </div>
 
-        <div className="flex justify-center flex-1">
-          <NavbarDesktop
-            openDropdown={openDropdown}
-            setOpenDropdown={setOpenDropdown}
-          />
-        </div>
+        {/* Menu */}
+        <div className="hidden md:flex items-center gap-8 text-white font-medium">
+          <Link to="/" className="hover:text-yellow-400 transition-colors">Home</Link>
+          <Link to="/lowongan" className="hover:text-yellow-400 transition-colors">Lowongan</Link>
 
-        <div className="flex items-center">
-          <div className="hidden md:block">
-          <Button
-            to="/login"
-            className="px-7 py-1.5 border text-[15px] font-semibold border-primary-red text-primary-red rounded-lg hover:bg-primary-red hover:text-white"
+          {/* Dropdown Informasi */}
+          <div
+            className="relative cursor-pointer"
+            onMouseEnter={() => setOpenDropdown(true)}
+            onMouseLeave={() => setOpenDropdown(false)}
           >
-            Masuk
-          </Button>
+            <div className="flex items-center gap-1 hover:text-yellow-400 transition-colors">
+              <span>Informasi</span>
+              <ChevronDown size={16} />
+            </div>
+
+            <AnimatePresence>
+              {openDropdown && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="fixed left-0 top-[70px] w-screen bg-white shadow-lg rounded-b-lg z-50 overflow-hidden"
+                  >
+                  <div className="flex items-center justify-between px-16 py-10 font-[Poppins] max-w-[1440px] mx-auto">
+                    {/* Ilustrasi kiri */}
+                    <div className="flex-shrink-0">
+                      <img
+                        src="/images/gambar-kiri.png"
+                        alt="Illustration Left"
+                        className="h-[160px] object-contain"
+                      />
+                    </div>
+
+                    {/* Menu tengah */}
+                    <div className="flex justify-center flex-1 gap-16">
+                      {infoItems.map((item) => (
+                        <Link
+                          key={item.id}
+                          to={item.route}
+                          className="flex flex-col items-center justify-center gap-2 px-6 py-3 rounded-lg hover:bg-[#FFF7E6] transition-colors duration-200 cursor-pointer"
+                        >
+                          <div className="text-2xl text-[#0B1B48] group-hover:text-primary-red transition-colors duration-200">
+  {item.icon}
+</div>
+
+                          <span className="text-[15px] font-medium text-[#0B1B48]">
+                            {item.label}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Ilustrasi kanan */}
+                    <div className="flex-shrink-0">
+                      <img
+                        src="/images/gambar-kanan.png"
+                        alt="Illustration Right"
+                        className="h-[160px] object-contain"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+
+              )}
+            </AnimatePresence>
           </div>
 
-          <div className="md:hidden ml-3">
-            <NavbarDrawer />
-          </div>
+          <Link to="/survey" className="hover:text-yellow-400 transition-colors">
+            Survey Kepuasan
+          </Link>
+          <Link to="/kontak" className="hover:text-yellow-400 transition-colors">
+            Kontak
+          </Link>
+        </div>
+
+        {/* Tombol Login */}
+        <div>
+          <Link
+            to="/login"
+            className="bg-yellow-400 text-[#0B1B48] font-semibold px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
+          >
+            Login
+          </Link>
         </div>
       </div>
-
-      <AnimatePresence>
-        {openDropdown && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed left-0 right-0 bottom-0 top-30 bg-black/30 z-40"
-              onClick={() => setOpenDropdown(false)}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, maxHeight: 0 }}
-              animate={{ opacity: 1, maxHeight: 600 }} 
-              exit={{ opacity: 0, maxHeight: 0 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-              className="absolute left-0 top-full w-full bg-white shadow-lg rounded-b-lg z-50 md:block overflow-hidden"
-            >
-              <div className="flex mx-auto gap-10 items-start pt-6">
-                <div className="flex-shrink-0 self-end">
-                  <img
-                    src="/images/illustration.png"
-                    alt="Illustration"
-                    className="max-h-70 object-contain"
-                  />
-                </div>
-
-                <div className="flex flex-col p-8 min-h-[300px] gap-2 flex-1">
-                  <div className="grid grid-cols-3 gap-6">
-                    {MENU_ITEMS.find((i) => i.id === "aplikasi").submenu
-                      .filter((item) => !item.isButton)
-                      .map((item) => (
-                        <Link
-                          key={item.id}
-                          to={item.route}
-                          className="hover:bg-[#FFEAEB] p-4 rounded-lg cursor-pointer"
-                        >
-                          <img
-                            src={item.image}
-                            alt={item.label}
-                            className="h-8 w-auto object-contain mb-4"
-                          />
-                          <p className="inter text-black">{item.description}</p>
-                        </Link>
-                      ))}
-                  </div>
-
-                  <div className="mt-auto flex justify-end">
-                    {MENU_ITEMS.find((i) => i.id === "aplikasi").submenu
-                      .filter((item) => item.isButton)
-                      .map((item) => (
-                        <Link
-                          key={item.id}
-                          to={item.route}
-                          className="px-5 py-2 text-xs border border-primary-red text-primary-red rounded-lg hover:bg-primary-red hover:text-white transition-colors flex items-center gap-2"
-                        >
-                          <span>{item.label}</span>
-                          <ArrowRight className="w-3 h-3" />
-                        </Link>
-                      ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
