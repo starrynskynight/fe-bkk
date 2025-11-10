@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Mohammad Nur Kholis, S.STP, MM",
+    "position": "Kepala Dinas Pendidikan / Pembina BKK",
+    "description": "Sebagai Pembina TK-1 BKK.",
+    "image": "/images/person.png"
+  },
+  {
+    "name": "Rudi Trisantoso, S.Pd., M.Pd.",
+    "position": "Kepala Sekolah",
+    "description": "Sebagai Penanggung Jawab BKK.",
+    "image": "/images/person.png"
+  },
+  {
+    "name": "Muhadhi, S.Pd., M.KPd",
+    "position": "Waka HIN / Wakil Kepala Bagian Hubungan Industri",
+    "description": "Ketua BKK, disebut sebagai Ketua BKK.",
+    "image": "/images/person.png"
+  }
+]
