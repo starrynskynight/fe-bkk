@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Kegiatan Job Fair",
+    "image": "/images/news.png"
+  },
+  {
+    "id": 2,
+    "title": "Sosialisasi Dunia Industri",
+    "image": "/images/news.png"
+  },
+  {
+    "id": 3,
+    "title": "Kunjungan ke Perusahaan Mitra",
+    "image": "/images/opet.jpeg"
+  }
+]

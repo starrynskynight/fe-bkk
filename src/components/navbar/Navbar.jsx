@@ -115,7 +115,7 @@ const Navbar = () => {
         <div>
           <Link
             to="/login"
-            className="bg-yellow-400 text-[#0B1B48] font-semibold px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
+            className="bg-yellow-400 text-white font-semibold px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
           >
             Login
           </Link>
