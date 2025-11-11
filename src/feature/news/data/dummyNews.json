@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "image": "/images/news.png",
+    "title": "BKK SMKN 1 Purwosari Gelar Job Fair 2025 dengan 20 Perusahaan Mitra",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Kamis, 3 September 2025",
+    "category": "Berita",
+    "views": 250
+  },
+  {
+    "id": 2,
+    "image": "/images/news.png",
+    "title": "Alumni SMKN 1 Purwosari Sukses Berkarier di Dunia Industri",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Selasa, 20 Agustus 2025",
+    "category": "Berita",
+    "views": 180
+  },
+  {
+    "id": 3,
+    "image": "/images/news.png",
+    "title": "Pelatihan Wawancara Kerja untuk Siswa Kelas XII",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Jumat, 5 Juli 2025",
+    "category": "Kegiatan",
+    "views": 90
+  },
+  {
+    "id": 4,
+    "image": "/images/news.png",
+    "title": "Kunjungan Industri ke PT Satoria Agro Industri",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Senin, 10 Juni 2025",
+    "category": "Kegiatan",
+    "views": 150
+  },
+  {
+    "id": 5,
+    "image": "/images/news.png",
+    "title": "Sosialisasi Rekrutmen dari PT Yamaha Music Manufacturing",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Sabtu, 15 Maret 2025",
+    "category": "Berita",
+    "views": 120
+  },
+  {
+    "id": 6,
+    "image": "/images/news.png",
+    "title": "Workshop Pengembangan Soft Skill untuk Siswa BKK",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Rabu, 12 Februari 2025",
+    "category": "Kegiatan",
+    "views": 95
+  },
+  {
+    "id": 7,
+    "image": "/images/news.png",
+    "title": "Siswa RPL Raih Juara LKS Tingkat Provinsi",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "date": "Selasa, 28 Januari 2025",
+    "category": "Prestasi",
+    "views": 210
+  }
+]

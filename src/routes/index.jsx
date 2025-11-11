@@ -4,6 +4,8 @@ import MainLayout from "../layout/MainLayout";
 import JobPage from "@/feature/lowongan/pages/JobPage";
 import JobDetailPage from "@/feature/lowongan/pages/JobDetailPage";
 import JobApply from "@/feature/lowongan/pages/JobApply";
+import NewsList from "@/feature/news/pages/NewsList";
+import NewsDetailPage from "@/feature/news/pages/NewsDetailPage";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
       {
         path: "lowongan/lamar",
         element: <JobApply />
+      },
+      {
+        path: "berita",
+        element: <NewsList />
+      },
+      {
+        path: "berita/:id",
+        element: <NewsDetailPage/>
       }
     ]
   }

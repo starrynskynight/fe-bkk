@@ -5,7 +5,7 @@
     "category": "Lowongan Kerja",
     "date": "Senin, 20 Juli 2025",
     "image": "/images/news.png",
-    "excerpt": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
+    "description": "BKK SMKN 1 Purwosari kembali membuka kesempatan bagi siswa dan alumni untuk bergabung bersama PT Astra Otoparts.",
     "link": "#"
   },
   {
@@ -14,7 +14,7 @@
     "category": "Pelatihan",
     "date": "Rabu, 23 Juli 2025",
     "image": "/images/news.png",
-    "excerpt": "Program pelatihan kerja sama dengan industri membuka peluang alumni untuk meningkatkan keterampilan di dunia kerja.",
+    "description": "Program pelatihan kerja sama dengan industri membuka peluang alumni untuk meningkatkan keterampilan di dunia kerja.",
     "link": "#"
   }
 ]
