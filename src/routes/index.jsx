@@ -6,6 +6,7 @@ import JobDetailPage from "@/feature/lowongan/pages/JobDetailPage";
 import JobApply from "@/feature/lowongan/pages/JobApply";
 import NewsList from "@/feature/news/pages/NewsList";
 import NewsDetailPage from "@/feature/news/pages/NewsDetailPage";
+import Gallery from "@/feature/gallery/pages/Gallery";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "berita/:id",
         element: <NewsDetailPage/>
+      },
+      {
+        path: "gallery",
+        element: <Gallery/>
       }
     ]
   }
