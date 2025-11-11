@@ -1,6 +1,6 @@
 import React from "react";
 
-const NewsCard = ({ image, category, title, excerpt, date, link }) => {
+const NewsCard = ({ image, category, title, description, date, id }) => {
   return (
     <div className="bg-white rounded-xl w-[588px] shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200">
       <div className="relative">
@@ -19,13 +19,13 @@ const NewsCard = ({ image, category, title, excerpt, date, link }) => {
           <h3 className="text-lg font-semibold text-[#0b1437] mb-2 line-clamp-2">
             {title}
           </h3>
-          <p className="text-gray-600 text-sm mb-4 line-clamp-2">{excerpt}</p>
+          <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
         </div>
         <div className="flex items-center justify-between text-sm mt-auto">
           <span className="text-gray-400">{date}</span>
           <a
-            href={link}
-            className="text-yellow-500 font-medium hover:text-yellow-400 transition"
+            href={`/berita/${id}`}
+            className="text-yellow-500 font-medium hover:underline transition"
           >
             Baca Selengkapnya
           </a>
