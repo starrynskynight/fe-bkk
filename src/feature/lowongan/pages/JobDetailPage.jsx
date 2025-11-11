@@ -25,7 +25,7 @@ const JobDetailPage = () => {
   return (
     <div>
       <ThumbnailSection backgroundImage="/images/smkn1purwosari.png">
-        <div className="bg-[#0B1437] p-5 rounded-lg flex items-center gap-2 shadow-lg w-full max-w-5xl mx-auto relative">
+        <div className="bg-[#0B1437] p-5 rounded-lg flex justify-center items-center gap-2 shadow-lg w-full max-w-5xl mx-auto relative">
         <h1 className="text-2xl md:text-[48px] text-center text-white font-semibold">
           Detail Lowongan Pekerjaan
         </h1>
@@ -44,29 +44,35 @@ const JobDetailPage = () => {
             <h2 className="text-2xl font-semibold text-gray-900 flex items-center gap-2">
               {job.company}
             </h2>
+            <div className="flex justify-between">
             <p className="text-yellow-500 font-medium mt-1">
               {job.datePosted}
             </p>
-            <p className="text-gray-500 text-sm mb-4 flex items-center gap-2">
+            <p className="text-yellow-500 text-sm mb-4 flex items-center gap-2">
               <Eye size={16} />
               Dilihat: {job.views}x
             </p>
+            </div>
 
-            <div className="space-y-3 text-gray-700">
+            <div className="space-y-6 mt-4 text-gray-700">
               <p className="flex items-center gap-2">
-                <MapPin className="text-orange-400" /> Penempatan:{" "}
+                <div className="p-2 bg-[#EF9039]/15 flex items-centern rounded-full">
+                <MapPin className="text-yellow-400 text-[24px]" /> </div> Penempatan:{" "}
                 <span className="font-medium">{job.location}</span>
               </p>
               <p className="flex items-center gap-2">
-                <Briefcase className="text-orange-400" /> Posisi:{" "}
+                <div className="p-2 bg-[#EF9039]/15 flex items-centern rounded-full">
+                <Briefcase className="text-yellow-400 text-[24px]" /> </div> Posisi:{" "}
                 <span className="font-medium">{job.position}</span>
               </p>
               <p className="flex items-center gap-2">
-                <Banknote className="text-orange-400" /> Gaji:{" "}
+                <div className="p-2 bg-[#EF9039]/15 flex items-centern rounded-full">
+                <Banknote className="text-yellow-400 text-[24px]" /> </div> Gaji:{" "}
                 <span className="font-medium">{job.salary}</span>
               </p>
               <p className="flex items-center gap-2">
-                <CalendarDays className="text-orange-400" /> Tanggal:{" "}
+                <div className="p-2 bg-[#EF9039]/15 flex items-centern rounded-full">
+                <CalendarDays className="text-yellow-400 text-[24px]" /> </div> Tanggal:{" "}
                 <span className="font-medium">
                   {job.startDate} - {job.endDate}
                 </span>
