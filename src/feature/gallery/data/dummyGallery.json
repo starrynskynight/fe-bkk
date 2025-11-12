@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "img": "/images/gallery/gallery1.jpg",
+    "category": "Kegiatan Sekolah",
+    "title": "Upacara Bendera",
+    "description": "Upacara bendera rutin setiap Senin pagi",
+    "url": "#"
+  },
+  {
+    "id": 2,
+    "img": "/images/gallery/gallery2.jpg",
+    "category": "Alumni",
+    "title": "Reuni Alumni 2024",
+    "description": "Pertemuan alumni angkatan 2020",
+    "url": "#"
+  },
+  {
+    "id": 3,
+    "img": "/images/gallery/gallery3.jpg",
+    "category": "Job Fair",
+    "title": "Job Fair 2024",
+    "description": "Bursa kerja khusus lulusan SMK",
+    "url": "#"
+  },
+  {
+    "id": 4,
+    "img": "/images/gallery/gallery4.jpg",
+    "category": "Kerja Sama Industri",
+    "title": "Kunjungan Industri",
+    "description": "Kunjungan ke PT. Maju Bersama",
+    "url": "#"
+  },
+  {
+    "id": 5,
+    "img": "/images/gallery/gallery5.jpg",
+    "category": "Kegiatan Sekolah",
+    "title": "Praktek Kerja Lapangan",
+    "description": "Siswa melakukan PKL di industri",
+    "url": "#"
+  },
+  {
+    "id": 6,
+    "img": "/images/gallery/gallery6.jpg",
+    "category": "Job Fair",
+    "title": "Workshop Career",
+    "description": "Pelatihan persiapan memasuki dunia kerja",
+    "url": "#"
+  },
+  {
+    "id": 7,
+    "img": "/images/gallery/gallery7.jpg",
+    "category": "Alumni",
+    "title": "Success Story",
+    "description": "Sharing pengalaman dari alumni sukses",
+    "url": "#"
+  }
+]
