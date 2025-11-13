@@ -7,6 +7,7 @@ import JobApply from "@/feature/lowongan/pages/JobApply";
 import NewsList from "@/feature/news/pages/NewsList";
 import NewsDetailPage from "@/feature/news/pages/NewsDetailPage";
 import Gallery from "@/feature/gallery/pages/Gallery";
+import PartnersPage from "@/feature/partners/pages/PartnersPage";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "gallery",
         element: <Gallery/>
+      },
+      {
+        path: "mitra-kerja",
+        element: <PartnersPage/>
       }
     ]
   }

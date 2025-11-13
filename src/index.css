@@ -191,3 +191,16 @@ body {
     @apply bg-background text-foreground;
     }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+.thumbnail-swiper .swiper-slide {
+  transition: all 0.3s ease;
+}
+
+.thumbnail-swiper .swiper-slide:hover img {
+  transform: scale(1.05);
+}
