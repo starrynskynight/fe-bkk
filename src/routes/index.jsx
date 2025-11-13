@@ -8,6 +8,7 @@ import NewsList from "@/feature/news/pages/NewsList";
 import NewsDetailPage from "@/feature/news/pages/NewsDetailPage";
 import Gallery from "@/feature/gallery/pages/Gallery";
 import PartnersPage from "@/feature/partners/pages/PartnersPage";
+import AboutUsPage from "@/feature/about/pages/AboutUsPage";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "mitra-kerja",
         element: <PartnersPage/>
+      },
+      {
+        path: "tentang",
+        element: <AboutUsPage/>
       }
     ]
   }
