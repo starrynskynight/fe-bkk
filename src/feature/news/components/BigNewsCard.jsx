@@ -2,12 +2,12 @@ import React from "react";
 
 const BigNewsCard = ({ image, title, date, category, views }) => {
   return (
-    <div className="bg-white rounded-xl w-[570px] shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200">
       <div className="relative">
         <img
           src={image}
           alt={title}
-          className="w-[580px] h-[580px] object-cover"
+          className="w-[590px] h-[590px] object-cover"
         />
         <div className="absolute inset-0 bg-black/50 rounded-xl"></div>
         <span className="absolute top-3 left-3 bg-[#0b1437] text-white text-sm font-medium px-3 py-1 rounded-md">

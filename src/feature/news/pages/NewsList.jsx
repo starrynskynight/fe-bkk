@@ -100,9 +100,9 @@ const NewsList = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 place-items-center">
           <BigNewsCard {...mainNews} />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-8">
             {otherNews.map((item) => (
               <SmallNewsCard key={item.id} {...item} />
             ))}

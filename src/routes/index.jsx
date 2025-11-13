@@ -11,6 +11,7 @@ import PartnersPage from "@/feature/partners/pages/PartnersPage";
 import FormSurvey from "@/feature/survey/pages/FormSurvey";
 import NotFound from "@/feature/NotFound";
 import AboutUsPage from "@/feature/about/pages/AboutUsPage";
+import ContactPage from "@/feature/contact/pages/ContactPage";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "tentang",
         element: <AboutUsPage/>
+      },
+      {
+        path: "kontak",
+        element: <ContactPage/>
       }
     ]
   },
