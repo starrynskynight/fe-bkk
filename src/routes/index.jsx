@@ -8,6 +8,8 @@ import NewsList from "@/feature/news/pages/NewsList";
 import NewsDetailPage from "@/feature/news/pages/NewsDetailPage";
 import Gallery from "@/feature/gallery/pages/Gallery";
 import PartnersPage from "@/feature/partners/pages/PartnersPage";
+import FormSurvey from "@/feature/survey/pages/FormSurvey";
+import NotFound from "@/feature/NotFound";
 import AboutUsPage from "@/feature/about/pages/AboutUsPage";
 
 export const router = createBrowserRouter([
@@ -48,9 +50,17 @@ export const router = createBrowserRouter([
         element: <PartnersPage/>
       },
       {
+        path: "survey",
+        element: <FormSurvey/>
+      },
+      {
         path: "tentang",
         element: <AboutUsPage/>
       }
     ]
-  }
+  },
+  {
+     path: "*",
+     element: <NotFound/>
+  },
 ]);
