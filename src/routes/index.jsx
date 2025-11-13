@@ -10,6 +10,7 @@ import Gallery from "@/feature/gallery/pages/Gallery";
 import PartnersPage from "@/feature/partners/pages/PartnersPage";
 import FormSurvey from "@/feature/survey/pages/FormSurvey";
 import NotFound from "@/feature/NotFound";
+import AboutUsPage from "@/feature/about/pages/AboutUsPage";
 
 export const router = createBrowserRouter([
   {
@@ -53,9 +54,13 @@ export const router = createBrowserRouter([
         element: <FormSurvey/>
       },
       {
-        path: "*",
-        element: <NotFound/>
+        path: "tentang",
+        element: <AboutUsPage/>
       }
     ]
-  }
+  },
+  {
+     path: "*",
+     element: <NotFound/>
+  },
 ]);
