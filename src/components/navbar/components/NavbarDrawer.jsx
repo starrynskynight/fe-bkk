@@ -1,22 +1,14 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FiMenu, FiX, FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { MENU_ITEMS } from "../helper/NavItems";
-import Button from "../../common/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const NavbarDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-
-  const toggleDropdown = (id) => {
-    setOpenDropdown(openDropdown === id ? null : id);
-  };
 
   return (
-    <div className="md:hidden">
+    <>
       <button onClick={() => setIsOpen(true)}>
-        <FiMenu className="text-2xl" />
+        <FiMenu className="text-2xl text-white" />
       </button>
 
       <div
@@ -32,89 +24,32 @@ const NavbarDrawer = () => {
         }`}
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <img src="/images/logo.png" alt="Mi Jurnal" className="h-6 w-auto" />
+          <img src="/images/logo-bkk.png" alt="Logo BKK" className="h-6 w-auto" />
           <button onClick={() => setIsOpen(false)}>
             <FiX className="text-2xl" />
           </button>
         </div>
 
-        <div className="flex flex-col space-y-2 p-4">
-          {MENU_ITEMS.map((item) => (
-            <div key={item.id}>
-              {!item.hasDropdown ? (
-                <NavLink
-                  to={item.route}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `flex items-center space-x-3 px-3 py-2 rounded-md transition-colors ${
-                      isActive
-                        ? "text-primary-red bg-primary-red/10 border-l-4 border-primary-red font-medium"
-                        : "text-gray-700 hover:text-primary-red"
-                    }`
-                  }
-                >
-                  <item.icon className="text-lg" />
-                  <span>{item.label}</span>
-                </NavLink>
-              ) : (
-                <div>
-                  <button
-                    onClick={() => toggleDropdown(item.id)}
-                    className="flex items-center justify-between w-full px-3 py-2 rounded-md text-gray-700 hover:text-primary-red"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <item.icon className="text-lg" />
-                      <span>{item.label}</span>
-                    </div>
-                    {openDropdown === item.id ? (
-                      <FiChevronUp className="text-lg" />
-                    ) : (
-                      <FiChevronDown className="text-lg" />
-                    )}
-                  </button>
-
-                  {openDropdown === item.id && (
-                    <AnimatePresence>
-                      {openDropdown === item.id && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="ml-4 mt-2 flex flex-col gap-2 border-l border-gray-200 overflow-hidden"
-                        >
-                          {item.submenu.map((sub) => (
-                            <NavLink
-                              key={sub.id}
-                              to={sub.route}
-                              end
-                              onClick={() => setIsOpen(false)}
-                              className={({ isActive }) =>
-                                `flex items-center gap-2 px-3 py-2 ml-2 rounded-md transition-colors text-sm ${
-                                  isActive
-                                    ? "text-primary-red bg-primary-red/10 border-l-4 border-primary-red font-medium"
-                                    : "text-gray-600 hover:text-primary-red"
-                                }`
-                              }
-                            >
-                              <sub.icon className="text-lg" />
-                              <span>{sub.label}</span>
-                            </NavLink>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-          <Button className="mt-4 border border-red-500 text-red-500 rounded-lg hover:bg-red-500 hover:text-white">
-            Masuk
-          </Button>
+        <div className="flex flex-col space-y-1 p-4">
+          <Link to="/" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Home</Link>
+          <Link to="/lowongan" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Lowongan</Link>
+          <Link to="/berita" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Berita</Link>
+          <Link to="/gallery" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Gallery</Link>
+          <Link to="/mitra-kerja" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Mitra Kerja</Link>
+          <Link to="/tentang" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Tentang Kami</Link>
+          <Link to="/survey" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Survey Kepuasan</Link>
+          <Link to="/kontak" onClick={() => setIsOpen(false)} className="px-3 py-2 text-gray-700 hover:text-yellow-500 hover:bg-gray-100 rounded-md transition-colors font-medium">Kontak</Link>
+          
+          <Link
+            to="/login"
+            onClick={() => setIsOpen(false)}
+            className="mt-4 bg-yellow-400 text-white font-semibold px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors text-center"
+          >
+            Login
+          </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

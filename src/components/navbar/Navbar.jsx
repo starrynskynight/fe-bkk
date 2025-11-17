@@ -5,6 +5,7 @@ import { ChevronDown, Home } from "lucide-react";
 import { GrGallery } from "react-icons/gr";
 import { BsPersonWorkspace } from "react-icons/bs";
 import { MdInfo } from "react-icons/md";
+import NavbarDrawer from "./components/NavbarDrawer";
 
 
 
@@ -112,13 +113,18 @@ const Navbar = () => {
         </div>
 
         {/* Tombol Login */}
-        <div>
+        <div className="hidden md:block">
           <Link
             to="/login"
             className="bg-yellow-400 text-white font-semibold px-5 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
           >
             Login
           </Link>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="md:hidden">
+          <NavbarDrawer />
         </div>
       </div>
     </nav>
