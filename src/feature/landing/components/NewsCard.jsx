@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsCard = ({ image, category, title, description, date, id }) => {
   return (
-    <div className="bg-white rounded-xl w-[588px] shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200 w-full">
       <div className="relative">
         <img
           src={image}

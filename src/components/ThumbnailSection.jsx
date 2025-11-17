@@ -18,7 +18,7 @@ const ThumbnailSection = ({
         <div className="absolute inset-0 bg-black/40"></div>
       )}
 
-      <div className="absolute -bottom-5 z-10 w-full max-w-5xl px-6">
+      <div className="absolute bottom-0 md:-bottom-5 z-10 w-full max-w-5xl px-6">
         {children}
       </div>
     </section>

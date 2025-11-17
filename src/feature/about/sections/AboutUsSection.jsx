@@ -23,11 +23,11 @@ const AboutUsSection = () => {
             </p>
 
             <button
-                class="bg-[#FFC107] text-white font-semibold px-8 py-3 tracking-[0.05em]
-                        [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)] shadow-md hover:scale-105 
-                        transition-transform duration-300 ease-in-out"
-                >
-                BACA SETERUSNYA
+              className="bg-[#FFC107] text-white font-semibold px-8 py-3 tracking-[0.05em]
+                  [clip-path:polygon(0_0,100%_0,90%_100%,0_100%)] shadow-md hover:scale-105 
+                  transition-transform duration-300 ease-in-out mt-4"
+              >
+              BACA SETERUSNYA
             </button>
         </div>
         

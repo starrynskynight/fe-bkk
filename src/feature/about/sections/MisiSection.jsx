@@ -5,11 +5,11 @@ const MisiSection = () => {
     <section className="text-black px-6 md:px-12 lg:px-20 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
         <div className="relative w-full mx-auto">
-          <div className="relative -top-16">
+          <div className="overflow-hidden rounded-xl shadow-md">
             <img
               src="/images/misi.png" 
               alt="misi"
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-64 md:h-96"
             />
           </div>
         </div>

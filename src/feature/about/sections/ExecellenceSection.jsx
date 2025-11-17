@@ -42,14 +42,14 @@ const ExecellenceSection = () => {
                 </div>
 
                 <img
-                    src="images/image-ex2.jpg"
+                    src="/images/image-ex2.jpg"
                     alt="Keunggulan BKK"
-                    className="rounded-xl shadow-md"
+                    className="rounded-xl shadow-md w-full h-64 md:h-80 object-cover"
                 />
                 <img
                     src="/svg/dot-patterns.svg"
                     alt=""
-                    className="absolute bottom-50 left-24 w-[500px] pointer-events-none"
+                    className="absolute bottom-12 left-8 w-40 md:w-56 pointer-events-none opacity-60"
                 />
             </div>
         </div>
