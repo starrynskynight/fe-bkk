@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1503264116251-35a269479413",
+    "title": "Promo Akhir Tahun",
+    "description": "Diskon besar-besaran untuk semua produk hingga 70%.",
+    "category": "Promo"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1483721310020-03333e577078",
+    "title": "Event Workshop Desain",
+    "description": "Belajar UI/UX secara langsung dengan mentor profesional.",
+    "category": "Event"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1475724017904-b712052c192a",
+    "title": "Launching Produk Baru",
+    "description": "Perkenalan produk inovatif untuk kebutuhan sehari-hari.",
+    "category": "Product"
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1564866657310-0fd9a4db6002",
+    "title": "Lomba Fotografi",
+    "description": "Kirim hasil foto terbaikmu dan raih hadiah jutaan rupiah!",
+    "category": "Event"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c",
+    "title": "Tips Belajar Efektif",
+    "description": "Cara belajar yang terbukti meningkatkan fokus.",
+    "category": "Artikel"
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "title": "Promo Ramadhan",
+    "description": "Diskon khusus selama bulan Ramadhan.",
+    "category": "Promo"
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1454165205744-3b78555e5572",
+    "title": "Webinar Startup",
+    "description": "Belajar memulai bisnis dari para founder startup.",
+    "category": "Event"
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1522199710521-72d69614c702",
+    "title": "Artikel Teknologi",
+    "description": "Perkembangan AI dan teknologi terbaru tahun ini.",
+    "category": "Artikel"
+  },
+  {
+    "id": 9,
+    "image": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+    "title": "UI Design Template",
+    "description": "Kumpulan template figma gratis untuk desain website.",
+    "category": "Download"
+  },
+  {
+    "id": 10,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "title": "Promo Liburan",
+    "description": "Diskon hotel dan paket liburan akhir pekan.",
+    "category": "Promo"
+  }
+]
