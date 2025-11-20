@@ -17,6 +17,10 @@ import ProtectedLayout from "@/layout/ProtectedLayout";
 import NewsDetailAdmin from "@/feature/admin/news/pages/NewsDetailAdmin";
 import NewsAddAdmin from "@/feature/admin/news/pages/NewsAddAdmin";
 import NewsEditAdmin from "@/feature/admin/news/pages/NewsEditAdmin";
+import GalleryList from "@/feature/admin/gallery/pages/GalleryList";
+import GalleryDetail from "@/feature/admin/gallery/pages/GalleryDetail";
+import GalleryAddAdmin from "@/feature/admin/gallery/pages/GalleryAddPage";
+import GalleryEditAdmin from "@/feature/admin/gallery/pages/GalleryEditPage";
 
 export const router = createBrowserRouter([
   {
@@ -88,7 +92,23 @@ export const router = createBrowserRouter([
       {
         path: 'berita/:id/edit',
         element: <NewsEditAdmin />
-      }
+      },
+      {
+        path: 'gallery',
+        element: <GalleryList />
+      },
+      {
+        path: 'gallery/detail/:id',
+        element: <GalleryDetail />
+      },
+      {
+        path: 'gallery/tambah',
+        element: <GalleryAddAdmin />
+      },
+      {
+        path: 'gallery/edit/:id',
+        element: <GalleryEditAdmin />
+      },
     ]
   },
   {
