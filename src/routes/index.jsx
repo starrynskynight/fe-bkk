@@ -11,6 +11,12 @@ import PartnersPage from "@/feature/partners/pages/PartnersPage";
 import FormSurvey from "@/feature/survey/pages/FormSurvey";
 import NotFound from "@/feature/NotFound";
 import AboutUsPage from "@/feature/about/pages/AboutUsPage";
+import ContactPage from "@/feature/contact/pages/ContactPage";
+import NewsListAdmin from "@/feature/admin/news/pages/NewsListAdmin";
+import ProtectedLayout from "@/layout/ProtectedLayout";
+import NewsDetailAdmin from "@/feature/admin/news/pages/NewsDetailAdmin";
+import NewsAddAdmin from "@/feature/admin/news/pages/NewsAddAdmin";
+import NewsEditAdmin from "@/feature/admin/news/pages/NewsEditAdmin";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +62,32 @@ export const router = createBrowserRouter([
       {
         path: "tentang",
         element: <AboutUsPage/>
+      },
+      {
+        path: "kontak",
+        element: <ContactPage/>
+      }
+    ]
+  },
+  {
+    path: "/admin",
+    element: <ProtectedLayout/>,
+    children: [
+      {
+        path: 'berita',
+        element: <NewsListAdmin />
+      },
+      {
+        path: 'berita/:id',
+        element: <NewsDetailAdmin />
+      },
+      {
+        path: 'berita/tambah',
+        element: <NewsAddAdmin />
+      },
+      {
+        path: 'berita/:id/edit',
+        element: <NewsEditAdmin />
       }
     ]
   },

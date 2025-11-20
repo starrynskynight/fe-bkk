@@ -1,13 +1,9 @@
 import { useState } from "react";
-import {
-  IoEyeOff,
-  IoEye,
-  IoAlertCircleOutline,
-} from "react-icons/io5";
-import { RxCross2 } from "react-icons/rx";
+import { IoEyeOff, IoEye, IoAlertCircleOutline, IoClose } from "react-icons/io5";
 import clsx from "clsx";
+import { RxCross2 } from "react-icons/rx";
 
-const InputField = ({
+const InputFieldAdmin = ({
   label,
   required = false,
   type = "text",
@@ -22,9 +18,8 @@ const InputField = ({
   inputStyle,
   readonly = false,
   note,
-  onRemove,
+  onRemove, 
   showRemove = false,
-  icon, // ✅ icon prop baru
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const inputType = type === "password" && showPassword ? "text" : type;
@@ -34,20 +29,13 @@ const InputField = ({
       {label && (
         <label
           htmlFor={name}
-          className={`block text-lg font-medium text-black mb-2 ${styleLabel}`}
+          className={`block inter text-[13px] font-regular text-black mb-1 ${styleLabel}`}
         >
-          {label} {required && <span className="text-red-600">*</span>}
+          {label} {required && <span className="text-primary-orange">*</span>}
         </label>
       )}
 
       <div className="relative">
-        {/* ✅ tampilkan icon jika ada */}
-        {icon && (
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-            {icon}
-          </div>
-        )}
-
         <input
           type={inputType}
           id={name}
@@ -56,15 +44,11 @@ const InputField = ({
           onChange={onChange}
           placeholder={placeholder}
           readOnly={readonly}
-          className={clsx(
-            "w-full rounded-[8px] border border-[#FFC107] p-4 placeholder:text-sm placeholder:text-[#8B8B8B]/70 placeholder:font-light focus:outline-none focus:ring-2 focus:ring-[#E9B20D]/10 focus:border-[#E9B20D]",
-            styleInput,
-            error && "border-red-500",
-            icon && "pl-11" // ✅ tambahkan padding kiri jika ada icon
-          )}
+          className={`w-full rounded-[10px] border border-[#EBF1F6] px-3 py-2 text-sm placeholder:text-xs placeholder:text-[#8B8B8B]/70 placeholder:font-light focus:outline-none focus:ring-2 focus:ring-primary-orange/10 focus:border-primary-orange ${styleInput} ${
+            error ? "border-red-500" : ""
+          }`}
         />
 
-        {/* password toggle */}
         {type === "password" && (
           <button
             type="button"
@@ -75,7 +59,6 @@ const InputField = ({
           </button>
         )}
 
-        {/* tombol hapus (remove) */}
         {showRemove && (
           <button
             type="button"
@@ -87,14 +70,11 @@ const InputField = ({
         )}
       </div>
 
-      {/* pesan error */}
       {error && (
         <p className="text-red-500 text-xs flex items-center gap-1 mt-1">
           <IoAlertCircleOutline /> {error}
         </p>
       )}
-
-      {/* catatan */}
       {note && (
         <p className="inter text-[10px] text-[#8B8B8B]/50 mt-1 ml-3">{note}</p>
       )}
@@ -102,4 +82,4 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default InputFieldAdmin;

@@ -22,11 +22,11 @@ const SelectField = ({
         <label
           htmlFor={name}
           className={clsx(
-            "block text-lg font-medium text-black mb-2",
+            "block inter text-[13px] font-regular text-black mb-1",
             styleLabel
           )}
         >
-          {label} {required && <span className="text-red-600">*</span>}
+          {label} {required && <span className="text-primary-orange">*</span>}
         </label>
       )}
 
@@ -38,7 +38,7 @@ const SelectField = ({
           onChange={onChange}
           disabled={readonly}
           className={clsx(
-            "w-full rounded-[8px] border border-[#FFC107] p-4 placeholder:text-sm placeholder:text-[#8B8B8B]/70 placeholder:font-light focus:outline-none focus:ring-2 focus:ring-[#E9B20D]/10 focus:border-[#E9B20D] appearance-none cursor-pointer",
+            "w-full border border-[#EBF1F6] rounded-[10px] px-4 py-3 pr-10 inter text-xs text-[#00040580] font-light appearance-none focus:outline-none focus:ring-2 focus:ring-primary-orange/10 focus:border-primary-orange cursor-pointer",
             styleInput,
             error && "border-red-500"
           )}
@@ -54,7 +54,7 @@ const SelectField = ({
         </select>
 
         <svg
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8B8B8B]/70 pointer-events-none"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"

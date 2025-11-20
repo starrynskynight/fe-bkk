@@ -1,0 +1,21 @@
+import { Icon } from "@iconify/react";
+
+export const NAV_ITEMS = [
+  {
+    section: "Dashboard",
+    items: [
+      { label: "Dashboard", icon: "mingcute:classify-2-fill", to: "/admin/dashboard" },
+    ],
+  },
+  {
+    section: "Konten Website",
+    items: [
+      { label: "Berita", icon: "heroicons:newspaper-solid", to: "/admin/berita" },
+      { label: "Gallery", icon: "mdi:image-multiple", to: "/admin/gallery" },
+      { label: "Lamaran Kerja", icon: "mdi:briefcase", to: "/admin/lamaran-kerja" },
+      { label: "Testimoni", icon: "mdi:comment-quote", to: "/admin/testimoni" },
+      { label: "Kontak", icon: "healthicons:contact-support", to: "/admin/kontak" },
+      { label: "Daftar Perusahaan", icon: "mdi:domain", to: "/admin/perusahaan" },
+    ],
+  },
+];
