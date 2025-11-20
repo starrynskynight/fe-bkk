@@ -2,12 +2,12 @@ import React from "react";
 
 const BigNewsCard = ({ image, title, date, category, views }) => {
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col transition hover:-translate-y-1 hover:shadow-md duration-200 w-full md:w-[570px]">
       <div className="relative">
         <img
           src={image}
           alt={title}
-          className="w-[590px] h-[590px] object-cover"
+          className="w-full h-64 md:h-[580px] object-cover"
         />
         <div className="absolute inset-0 bg-black/50 rounded-xl"></div>
         <span className="absolute top-3 left-3 bg-[#0b1437] text-white text-sm font-medium px-3 py-1 rounded-md">
@@ -18,9 +18,7 @@ const BigNewsCard = ({ image, title, date, category, views }) => {
             <p>{date}</p>
             <p>Dilihat: {views}x</p>
           </div>
-          <h1 className="font-semibold text-lg leading-tight">
-            {title}
-          </h1>
+          <h1 className="font-semibold text-lg leading-tight mt-1">{title}</h1>
         </div>
       </div>
     </div>
