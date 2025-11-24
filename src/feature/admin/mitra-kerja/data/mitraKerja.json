@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "logo": "/images/partners/daihatsu.jpg",
+    "name": "PT. Sekawan Media",
+    "bidang": "IT / Software",
+    "tanggal": "12 Januari 2024"
+  },
+  {
+    "id": 2,
+    "logo": "/images/partners/daihatsu.jpg",
+    "name": "PT. Satoria Agro",
+    "bidang": "Agro Industri",
+    "tanggal": "05 Februari 2024"
+  },
+  {
+    "id": 3,
+    "logo": "/images/partners/daihatsu.jpg",
+    "name": "PT. Maju Jaya",
+    "bidang": "Manufaktur",
+    "tanggal": "20 April 2024"
+  }
+]

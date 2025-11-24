@@ -29,6 +29,9 @@ import TestimoniCreate from "@/feature/admin/testimoni/pages/TestimoniCreate";
 import TestimoniEdit from "@/feature/admin/testimoni/pages/TestimoniEdit";
 import PesanMasuk from "@/feature/admin/pesan/pages/PesanMasuk";
 import PesanDetail from "@/feature/admin/pesan/pages/PesanDetail";
+import MitraKerjaList from "@/feature/admin/mitra-kerja/pages/MitraKerjaList";
+import TambahMitraKerja from "@/feature/admin/mitra-kerja/pages/TambahMitraKerja";
+import EditMitraKerja from "@/feature/admin/mitra-kerja/pages/EditMitraKerja";
 
 export const router = createBrowserRouter([
   {
@@ -148,6 +151,18 @@ export const router = createBrowserRouter([
       {
         path: 'pesan/detail/:id',
         element: <PesanDetail />
+      },
+      {
+        path: 'mitra',
+        element: <MitraKerjaList/>
+      },
+      {
+        path: 'mitra/tambah',
+        element: <TambahMitraKerja/>
+      },
+      {
+        path: 'mitra/edit/:id',
+        element: <EditMitraKerja/>
       },
     ]
   },

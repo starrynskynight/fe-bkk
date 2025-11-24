@@ -15,7 +15,7 @@ export const NAV_ITEMS = [
       { label: "Lamaran Kerja", icon: "mdi:briefcase", to: "/admin/lamaran-kerja" },
       { label: "Testimoni", icon: "mdi:comment-quote", to: "/admin/testimoni" },
       { label: "Pesan Masuk", icon: "healthicons:contact-support", to: "/admin/pesan-masuk" },
-      { label: "Daftar Perusahaan", icon: "mdi:domain", to: "/admin/perusahaan" },
+      { label: "Daftar Perusahaan", icon: "mdi:domain", to: "/admin/mitra" },
     ],
   },
 ];
