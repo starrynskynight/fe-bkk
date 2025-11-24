@@ -27,6 +27,8 @@ import TestimonialList from "@/feature/admin/testimoni/pages/TestimonialList";
 import TestimoniDetail from "@/feature/admin/testimoni/pages/TestimoniDetail";
 import TestimoniCreate from "@/feature/admin/testimoni/pages/TestimoniCreate";
 import TestimoniEdit from "@/feature/admin/testimoni/pages/TestimoniEdit";
+import PesanMasuk from "@/feature/admin/pesan/pages/PesanMasuk";
+import PesanDetail from "@/feature/admin/pesan/pages/PesanDetail";
 
 export const router = createBrowserRouter([
   {
@@ -138,6 +140,14 @@ export const router = createBrowserRouter([
       {
         path: 'testimoni/edit/:id',
         element: <TestimoniEdit />
+      },
+      {
+        path: 'pesan-masuk',
+        element: <PesanMasuk />
+      },
+      {
+        path: 'pesan/detail/:id',
+        element: <PesanDetail />
       },
     ]
   },
