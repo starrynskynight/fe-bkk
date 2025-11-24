@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Rina Dwi Ariyanti",
+    "posisi": "Admin Gudang",
+    "tahunLulus": "2023",
+    "status": "Belum Diproses",
+    "tanggal": "16 Okt 2025"
+  },
+  {
+    "id": 2,
+    "name": "Rina Dwi Ariyanti",
+    "posisi": "Admin Gudang",
+    "tahunLulus": "2023",
+    "status": "Dalam Proses",
+    "tanggal": "16 Okt 2025"
+  }
+]

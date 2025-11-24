@@ -21,6 +21,8 @@ import GalleryList from "@/feature/admin/gallery/pages/GalleryList";
 import GalleryDetail from "@/feature/admin/gallery/pages/GalleryDetail";
 import GalleryAddAdmin from "@/feature/admin/gallery/pages/GalleryAddPage";
 import GalleryEditAdmin from "@/feature/admin/gallery/pages/GalleryEditPage";
+import LamaranKerjaList from "@/feature/admin/lamaran/page/LamaranKerjaList";
+import LamaranDetail from "@/feature/admin/lamaran/page/LamaranDetail";
 
 export const router = createBrowserRouter([
   {
@@ -108,6 +110,14 @@ export const router = createBrowserRouter([
       {
         path: 'gallery/edit/:id',
         element: <GalleryEditAdmin />
+      },
+      {
+        path: 'lamaran-kerja',
+        element: <LamaranKerjaList />
+      },
+      {
+        path: 'lamaran-kerja/detail/:id',
+        element: <LamaranDetail />
       },
     ]
   },
