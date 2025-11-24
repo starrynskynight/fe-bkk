@@ -74,7 +74,7 @@ const FileInput = ({
         accept={accept}
         onChange={handleFileChange}
         className={clsx(
-          "block w-full p-4 text-lg text-black border border-[#FFC107] rounded-[8px] cursor-pointer bg-white",
+          "block w-full text-lg text-black border border-[#FFC107] rounded-[8px] cursor-pointer bg-white",
           "placeholder:text-sm placeholder:text-[#8B8B8B]/70 placeholder:font-light focus:outline-none focus:ring-2 focus:ring-[#E9B20D]/10 focus:border-[#E9B20D]",
           "file:mr-3 file:py-4 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-light file:bg-[#EBF1F6] file:[#8B8B8B]/70 hover:file:opacity-90"
         )}
