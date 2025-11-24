@@ -23,6 +23,10 @@ import GalleryAddAdmin from "@/feature/admin/gallery/pages/GalleryAddPage";
 import GalleryEditAdmin from "@/feature/admin/gallery/pages/GalleryEditPage";
 import LamaranKerjaList from "@/feature/admin/lamaran/page/LamaranKerjaList";
 import LamaranDetail from "@/feature/admin/lamaran/page/LamaranDetail";
+import TestimonialList from "@/feature/admin/testimoni/pages/TestimonialList";
+import TestimoniDetail from "@/feature/admin/testimoni/pages/TestimoniDetail";
+import TestimoniCreate from "@/feature/admin/testimoni/pages/TestimoniCreate";
+import TestimoniEdit from "@/feature/admin/testimoni/pages/TestimoniEdit";
 
 export const router = createBrowserRouter([
   {
@@ -118,6 +122,22 @@ export const router = createBrowserRouter([
       {
         path: 'lamaran-kerja/detail/:id',
         element: <LamaranDetail />
+      },
+      {
+        path: 'testimoni',
+        element: <TestimonialList />
+      },
+      {
+        path: 'testimoni/:id',
+        element: <TestimoniDetail />
+      },
+      {
+        path: 'testimoni/tambah',
+        element: <TestimoniCreate />
+      },
+      {
+        path: 'testimoni/edit/:id',
+        element: <TestimoniEdit />
       },
     ]
   },
