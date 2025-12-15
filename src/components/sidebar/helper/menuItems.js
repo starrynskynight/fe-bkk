@@ -16,6 +16,7 @@ export const NAV_ITEMS = [
       { label: "Testimoni", icon: "mdi:comment-quote", to: "/admin/testimoni" },
       { label: "Pesan Masuk", icon: "healthicons:contact-support", to: "/admin/pesan-masuk" },
       { label: "Daftar Perusahaan", icon: "mdi:domain", to: "/admin/mitra" },
+      { label: "Lowongan Pekerjaan", icon: "mdi:domain", to: "/admin/lowongan" },
     ],
   },
 ];

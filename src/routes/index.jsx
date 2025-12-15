@@ -32,6 +32,10 @@ import PesanDetail from "@/feature/admin/pesan/pages/PesanDetail";
 import MitraKerjaList from "@/feature/admin/mitra-kerja/pages/MitraKerjaList";
 import TambahMitraKerja from "@/feature/admin/mitra-kerja/pages/TambahMitraKerja";
 import EditMitraKerja from "@/feature/admin/mitra-kerja/pages/EditMitraKerja";
+import JobList from "@/feature/admin/job/pages/JobList";
+import JobAdd from "@/feature/admin/job/pages/JobAdd";
+import { JobDetail } from "@/feature/admin/job/pages/JobDetail";
+import { JobEdit } from "@/feature/admin/job/pages/JobEdit";
 
 export const router = createBrowserRouter([
   {
@@ -163,6 +167,22 @@ export const router = createBrowserRouter([
       {
         path: 'mitra/edit/:id',
         element: <EditMitraKerja/>
+      },
+      {
+        path: 'lowongan',
+        element: <JobList />
+      },
+      {
+        path: 'lowongan/tambah',
+        element: <JobAdd />
+      },
+      {
+        path: 'lowongan/:id',
+        element: <JobDetail />
+      },
+      {
+        path: 'lowongan/:id/edit',
+        element: <JobEdit />
       },
     ]
   },
