@@ -11,6 +11,11 @@ import PartnersPage from "@/feature/partners/pages/PartnersPage";
 import FormSurvey from "@/feature/survey/pages/FormSurvey";
 import NotFound from "@/feature/NotFound";
 import AboutUsPage from "@/feature/about/pages/AboutUsPage";
+import Login from "@/feature/auth/pages/Login";
+import Signup from "@/feature/auth/pages/Signup";
+import ForgotPassword from "@/feature/auth/pages/ForgotPassword";
+import ForgotVerify from "@/feature/auth/pages/ForgotVerify";
+import ResetPassword from "@/feature/auth/pages/ResetPassword";
 import ContactPage from "@/feature/contact/pages/ContactPage";
 import NewsListAdmin from "@/feature/admin/news/pages/NewsListAdmin";
 import ProtectedLayout from "@/layout/ProtectedLayout";
@@ -83,6 +88,24 @@ export const router = createBrowserRouter([
         element: <AboutUsPage/>
       },
       {
+        path: "login",
+        element: <Login/>
+      },
+      {
+        path: "signup",
+        element: <Signup/>
+      },
+      {
+        path: "forgot",
+        element: <ForgotPassword/>
+      },
+      {
+        path: "forgot/verify",
+        element: <ForgotVerify/>
+      },
+      {
+        path: "forgot/reset",
+        element: <ResetPassword/>
         path: "kontak",
         element: <ContactPage/>
       }

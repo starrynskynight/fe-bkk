@@ -13,7 +13,7 @@ const AboutUsPage = () => {
           <h1 className="text-2xl md:text-[48px] text-center text-white font-semibold">
             Tentang Kami
           </h1>
-        </div>
+        </div> 
       </ThumbnailSection>
       <AboutUsSection />
       <ExecellenceSection />
