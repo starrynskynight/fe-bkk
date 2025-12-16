@@ -16,6 +16,31 @@ import Signup from "@/feature/auth/pages/Signup";
 import ForgotPassword from "@/feature/auth/pages/ForgotPassword";
 import ForgotVerify from "@/feature/auth/pages/ForgotVerify";
 import ResetPassword from "@/feature/auth/pages/ResetPassword";
+import ContactPage from "@/feature/contact/pages/ContactPage";
+import NewsListAdmin from "@/feature/admin/news/pages/NewsListAdmin";
+import ProtectedLayout from "@/layout/ProtectedLayout";
+import NewsDetailAdmin from "@/feature/admin/news/pages/NewsDetailAdmin";
+import NewsAddAdmin from "@/feature/admin/news/pages/NewsAddAdmin";
+import NewsEditAdmin from "@/feature/admin/news/pages/NewsEditAdmin";
+import GalleryList from "@/feature/admin/gallery/pages/GalleryList";
+import GalleryDetail from "@/feature/admin/gallery/pages/GalleryDetail";
+import GalleryAddAdmin from "@/feature/admin/gallery/pages/GalleryAddPage";
+import GalleryEditAdmin from "@/feature/admin/gallery/pages/GalleryEditPage";
+import LamaranKerjaList from "@/feature/admin/lamaran/page/LamaranKerjaList";
+import LamaranDetail from "@/feature/admin/lamaran/page/LamaranDetail";
+import TestimonialList from "@/feature/admin/testimoni/pages/TestimonialList";
+import TestimoniDetail from "@/feature/admin/testimoni/pages/TestimoniDetail";
+import TestimoniCreate from "@/feature/admin/testimoni/pages/TestimoniCreate";
+import TestimoniEdit from "@/feature/admin/testimoni/pages/TestimoniEdit";
+import PesanMasuk from "@/feature/admin/pesan/pages/PesanMasuk";
+import PesanDetail from "@/feature/admin/pesan/pages/PesanDetail";
+import MitraKerjaList from "@/feature/admin/mitra-kerja/pages/MitraKerjaList";
+import TambahMitraKerja from "@/feature/admin/mitra-kerja/pages/TambahMitraKerja";
+import EditMitraKerja from "@/feature/admin/mitra-kerja/pages/EditMitraKerja";
+import JobList from "@/feature/admin/job/pages/JobList";
+import JobAdd from "@/feature/admin/job/pages/JobAdd";
+import { JobDetail } from "@/feature/admin/job/pages/JobDetail";
+import { JobEdit } from "@/feature/admin/job/pages/JobEdit";
 
 export const router = createBrowserRouter([
   {
@@ -81,7 +106,107 @@ export const router = createBrowserRouter([
       {
         path: "forgot/reset",
         element: <ResetPassword/>
+        path: "kontak",
+        element: <ContactPage/>
       }
+    ]
+  },
+  {
+    path: "/admin",
+    element: <ProtectedLayout/>,
+    children: [
+      {
+        path: 'berita',
+        element: <NewsListAdmin />
+      },
+      {
+        path: 'berita/:id',
+        element: <NewsDetailAdmin />
+      },
+      {
+        path: 'berita/tambah',
+        element: <NewsAddAdmin />
+      },
+      {
+        path: 'berita/:id/edit',
+        element: <NewsEditAdmin />
+      },
+      {
+        path: 'gallery',
+        element: <GalleryList />
+      },
+      {
+        path: 'gallery/detail/:id',
+        element: <GalleryDetail />
+      },
+      {
+        path: 'gallery/tambah',
+        element: <GalleryAddAdmin />
+      },
+      {
+        path: 'gallery/edit/:id',
+        element: <GalleryEditAdmin />
+      },
+      {
+        path: 'lamaran-kerja',
+        element: <LamaranKerjaList />
+      },
+      {
+        path: 'lamaran-kerja/detail/:id',
+        element: <LamaranDetail />
+      },
+      {
+        path: 'testimoni',
+        element: <TestimonialList />
+      },
+      {
+        path: 'testimoni/:id',
+        element: <TestimoniDetail />
+      },
+      {
+        path: 'testimoni/tambah',
+        element: <TestimoniCreate />
+      },
+      {
+        path: 'testimoni/edit/:id',
+        element: <TestimoniEdit />
+      },
+      {
+        path: 'pesan-masuk',
+        element: <PesanMasuk />
+      },
+      {
+        path: 'pesan/detail/:id',
+        element: <PesanDetail />
+      },
+      {
+        path: 'mitra',
+        element: <MitraKerjaList/>
+      },
+      {
+        path: 'mitra/tambah',
+        element: <TambahMitraKerja/>
+      },
+      {
+        path: 'mitra/edit/:id',
+        element: <EditMitraKerja/>
+      },
+      {
+        path: 'lowongan',
+        element: <JobList />
+      },
+      {
+        path: 'lowongan/tambah',
+        element: <JobAdd />
+      },
+      {
+        path: 'lowongan/:id',
+        element: <JobDetail />
+      },
+      {
+        path: 'lowongan/:id/edit',
+        element: <JobEdit />
+      },
     ]
   },
   {

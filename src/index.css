@@ -204,3 +204,15 @@ body {
 .thumbnail-swiper .swiper-slide:hover img {
   transform: scale(1.05);
 }
+
+.ql-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  border-bottom: 1px solid #EBF1F6;
+}
+
+.ql-container {
+  border: none !important;
+}  

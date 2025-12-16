@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Rina Dwi Ariyanti",
+    "email": "rinadwi@gmail.com",
+    "telp": "081234567890",
+    "pesan": "Saya ingin tahu informasi lebih lanjut...",
+    "tanggal": "16 Okt 2025",
+    "status": "Sudah Dibaca"
+  },
+  {
+    "id": 2,
+    "name": "Rina Dwi Ariyanti",
+    "email": "rinadwi@gmail.com",
+    "telp": "081234567890",
+    "pesan": "Saya ingin tahu informasi lebih lanjut...",
+    "tanggal": "16 Okt 2025",
+    "status": "Belum Dibaca"
+  }
+]

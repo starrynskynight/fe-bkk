@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "image": "/images/opet.jpeg",
+    "name": "Jessica Andrew",
+    "company": "PT. Sekawan Media",
+    "review": "Dengan BKK, mencari kerja jadi lebih mudah. Saya terbantu menemukan peluang baru."
+  },
+  {
+    "id": 2,
+    "image": "/images/opet.jpeg",
+    "name": "Jessica Andrew",
+    "company": "PT. Mayora Indah Tbk",
+    "review": "BKK memberi banyak informasi kerja. Saya bisa tahu lowongan sesuai jurusan saya."
+  },
+  {
+    "id": 3,
+    "image": "/images/opet.jpeg",
+    "name": "Jessica Andrew",
+    "company": "PT. Satoria Agro Industri",
+    "review": "Lewat BKK, saya mendapat bimbingan karier. Prosesnya cepat dan sangat membantu."
+  },
+  {
+    "id": 4,
+    "image": "/images/opet.jpeg",
+    "name": "Jessica Andrew",
+    "company": "PT. Sekawan Media",
+    "review": "Pengalaman saya lewat BKK luar biasa. Dari sini saya bisa mulai karier pertama."
+  },
+  {
+    "id": 5,
+    "image": "/images/opet.jpeg",
+    "name": "Jessica Andrew",
+    "company": "PT. Mayora Indah Tbk",
+    "review": "BKK membantu saya terhubung dengan dunia kerja. Semua terasa lebih terarah kini."
+  },
+  {
+    "id": 6,
+    "image": "/images/opet.jpeg",
+    "name": "Agus Santoso",
+    "company": "PT. Sentosa",
+    "review": "Terima kasih BKK, info job-nya update dan relevan."
+  },
+  {
+    "id": 7,
+    "image": "/images/opet.jpeg",
+    "name": "Dewi Lestari",
+    "company": "PT. Prima Jaya",
+    "review": "Bantu banget waktu cari kerja setelah lulus."
+  },
+  {
+    "id": 8,
+    "image": "/images/opet.jpeg",
+    "name": "Budi Hartono",
+    "company": "PT. Maju Bersama",
+    "review": "Fitur dan panduannya mudah diikuti."
+  },
+  {
+    "id": 9,
+    "image": "/images/opet.jpeg",
+    "name": "Siti Aminah",
+    "company": "PT. Cahaya",
+    "review": "Dapat info magang yang cocok dengan jurusanku."
+  },
+  {
+    "id": 10,
+    "image": "/images/opet.jpeg",
+    "name": "Rudi Pratama",
+    "company": "PT. Karya",
+    "review": "Proses aplikasinya cepat dan support-nya ramah."
+  },
+  {
+    "id": 11,
+    "image": "/images/opet.jpeg",
+    "name": "Lila Nur",
+    "company": "PT. Sinar Abadi",
+    "review": "Banyak lowongan yang sesuai skill."
+  },
+  {
+    "id": 12,
+    "image": "/images/opet.jpeg",
+    "name": "Anton Wijaya",
+    "company": "PT. Arta",
+    "review": "Membantu saya memetakan karier."
+  },
+  {
+    "id": 13,
+    "image": "/images/opet.jpeg",
+    "name": "Maya Putri",
+    "company": "PT. Sejahtera",
+    "review": "Sangat informatif dan terpercaya."
+  },
+  {
+    "id": 14,
+    "image": "/images/opet.jpeg",
+    "name": "Rian Kurnia",
+    "company": "PT. Global",
+    "review": "Rekomendasi lowongan sesuai skillset."
+  },
+  {
+    "id": 15,
+    "image": "/images/opet.jpeg",
+    "name": "Nina Salsabila",
+    "company": "PT. Merdeka",
+    "review": "User interface-nya gampang dipakai."
+  },
+  {
+    "id": 16,
+    "image": "/images/opet.jpeg",
+    "name": "Eko Prasetyo",
+    "company": "PT. Nusantara",
+    "review": "Mantap untuk yang baru lulus."
+  },
+  {
+    "id": 17,
+    "image": "/images/opet.jpeg",
+    "name": "Vina Amelia",
+    "company": "PT. Satria",
+    "review": "Mudah menemukan kontak perusahaan."
+  },
+  {
+    "id": 18,
+    "image": "/images/opet.jpeg",
+    "name": "Dian Pratiwi",
+    "company": "PT. Rancak",
+    "review": "Pilihan lowongan beragam."
+  },
+  {
+    "id": 19,
+    "image": "/images/opet.jpeg",
+    "name": "Arif Setiawan",
+    "company": "PT. Makmur",
+    "review": "Sangat membantu untuk persiapan karier."
+  },
+  {
+    "id": 20,
+    "image": "/images/opet.jpeg",
+    "name": "Sari Lestari",
+    "company": "PT. Wijaya",
+    "review": "Informasi lengkap dan terpercaya."
+  },
+  {
+    "id": 21,
+    "image": "/images/opet.jpeg",
+    "name": "Dedi Susanto",
+    "company": "PT. Prima",
+    "review": "Rekomendasi lowongan sesuai kemampuan."
+  }
+]
