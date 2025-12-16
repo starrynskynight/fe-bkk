@@ -5,9 +5,9 @@ export default function JobCard({ job, onView }) {
   return (
     <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition flex flex-col">
       <img
-        src={job.image}
+        src={job.image || "/images/lowongan1.png"}
         alt={job.company}
-        className="mb-3 h-[366px] w-[375px] object-cover"
+        className="mb-3 h-[366px] w-full object-cover"
       />
 
       <div className="p-4">
@@ -35,20 +35,11 @@ export default function JobCard({ job, onView }) {
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {job.majors?.map((tag) => {
-            const abbreviation = tag
-              .split(" ")
-              .map((word) => word[0]?.toUpperCase())
-              .join("");
-            return (
-              <span
-                key={tag}
-                className="text-[11px] font-medium bg-[#FDE68A] text-gray-800 px-3 py-[3px] rounded-md"
-              >
-                {abbreviation}
-              </span>
-            );
-          })}
+          {job.majors?.map((tag) => (
+  <span key={tag} className="text-[11px] bg-yellow-200 px-2 rounded">
+    {tag}
+  </span>
+))}
         </div>
 
         <div className="flex justify-center">

@@ -1,45 +1,137 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import ThumbnailSection from "@/components/ThumbnailSection";
 import InputField from "@/components/common/InputField";
-import SelectField from "@/components/common/SelectField"; 
+import SelectField from "@/components/common/SelectField";
 import TextareaField from "@/components/common/TextareaField";
 import FileInput from "@/components/common/FileInput";
 import { FaCheckSquare } from "react-icons/fa";
 import { IoSquareOutline } from "react-icons/io5";
+import { useJobApplicationForm } from "../hooks/useJobApplicationForm";
+import { useJobApplication } from "../hooks/useJobApplication";
+import { useJobVacancies } from "@/feature/admin/job/hooks/useJobVacancies";
+import { toast } from "react-toastify";
+import ErrorSummary from "./ErrorSummary";
+import { useMajors } from "../hooks/useMajors";
 
 const JobApply = () => {
-  const [formData, setFormData] = useState({
-    nama_lengkap: "",
-    nis_nisn: "",
-    tanggal_lahir: "",
-    jenis_kelamin: "",
-    alamat_lengkap: "",
-    no_hp: "",
-    email: "",
-    posisi_dilamar: "",
-    alamat_perusahaan: "",
-    cv_resume: null,
-    ijazah_sertifikat: null,
-    foto: null,
-    surat_lamaran: null,
-  });
+  const { id } = useParams(); // Job vacancy ID from URL
+  const navigate = useNavigate();
+  const { getJobById } = useJobVacancies(false);
+  const { submitApplication, loading } = useJobApplication();
+  const { majorOptions, loading: loadingMajors } = useMajors(); 
+  const {
+    formData,
+    errors,
+    handleChange,
+    handleFileChange,
+    validate,
+    reset,
+    getFormDataForSubmit,
+    setFormData,
+  } = useJobApplicationForm(id);
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-    }));
-  };
+  const [job, setJob] = useState(null);
+  const [loadingJob, setLoadingJob] = useState(true);
+  const [showErrorSummary, setShowErrorSummary] = useState(false);
 
-  const options = [
-    { label: "Laki-laki", value: "Laki-laki" },
-    { label: "Perempuan", value: "Perempuan" },
+  // Fetch job details
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const jobData = await getJobById(id);
+        setJob(jobData);
+        // Auto-fill job_vacancy_id
+        setFormData(prev => ({ ...prev, job_vacancy_id: id }));
+      } catch (error) {
+        console.error('Error fetching job:', error);
+      } finally {
+        setLoadingJob(false);
+      }
+    };
+
+    if (id) {
+      fetchJob();
+    }
+  }, [id]);
+
+  const genderOptions = [
+    { label: "Laki-laki", value: "male" },
+    { label: "Perempuan", value: "female" },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    handleChange(name, value);
   };
+
+  const handleFileInputChange = (e) => {
+    const { name, files } = e.target;
+    if (files && files[0]) {
+      handleFileChange(name, files[0]);
+    }
+  };
+
+ 
+
+  const scrollToField = (fieldName) => {
+  const element = document.getElementsByName(fieldName)[0] || 
+                  document.getElementById(fieldName);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => element.focus(), 500);
+  }
+};
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  // ⭐ TANGKAP return value dari validate()
+  const validationErrors = validate();
+  
+  // ⭐ CEK apakah ada error
+  if (Object.keys(validationErrors).length > 0) {
+    setShowErrorSummary(true);
+    
+    const errorCount = Object.keys(validationErrors).length;
+    toast.error(`${errorCount} field perlu diperbaiki. Scroll ke atas untuk melihat detailnya.`);
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  setShowErrorSummary(false);
+
+  try {
+    const submitData = getFormDataForSubmit();
+    await submitApplication(submitData);
+    setTimeout(() => {
+      navigate(`/lowongan/${id}`);
+    }, 2000);
+  } catch (error) {
+    console.error('Submit error:', error);
+  }
+};
+  const handleReset = () => {
+    reset();
+  };
+
+  if (loadingJob) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-yellow-400 border-t-transparent"></div>
+      </div>
+    );
+  }
+
+  if (!job) {
+    return (
+      <div className="p-8 text-center text-gray-500">
+        <p className="text-xl font-semibold">Lowongan tidak ditemukan.</p>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -52,6 +144,20 @@ const JobApply = () => {
       </ThumbnailSection>
 
       <div className="max-w-7xl mx-auto px-6 md:px-0 py-12">
+        {/* Job Info */}
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
+          <h3 className="font-semibold text-lg text-gray-800">Melamar untuk:</h3>
+          <p className="text-gray-700 mt-1">{job.position} - {job.company}</p>
+          <p className="text-gray-600 text-sm">{job.location}</p>
+        </div>
+
+        {showErrorSummary && (
+        <ErrorSummary 
+          errors={errors} 
+          onErrorClick={scrollToField} 
+        />
+      )}
+
         <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8">
           <div className="w-full md:w-1/2">
             <img
@@ -75,6 +181,7 @@ const JobApply = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
+          {/* Data Pribadi */}
           <div className="flex flex-col gap-1 mt-12">
             <h2 className="text-[15px] md:text-2xl font-semibold text-[#000405]">
               Data Pribadi Pelamar
@@ -86,12 +193,24 @@ const JobApply = () => {
           </div>
 
           <div className="flex flex-col gap-6">
+             <SelectField
+              label="Jurusan"
+              name="major_id"
+              value={formData.major_id}
+              onChange={handleInputChange}
+              options={majorOptions}
+              placeholder="Pilih jurusan Anda"
+              error={errors.major_id}
+              required
+            />
+
             <InputField
               label="Nama Lengkap"
-              name="nama_lengkap"
+              name="full_name"
               placeholder="Masukkan nama sesuai ijazah"
-              value={formData.nama_lengkap}
-              onChange={handleChange}
+              value={formData.full_name}
+              onChange={handleInputChange}
+              error={errors.full_name}
               required
             />
 
@@ -100,49 +219,49 @@ const JobApply = () => {
               name="nis_nisn"
               placeholder="Masukkan nomor NIS / NISN Anda"
               value={formData.nis_nisn}
-              onChange={handleChange}
-              required
+              onChange={handleInputChange}
+              error={errors.nis_nisn}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InputField
                 label="Tanggal Lahir"
-                name="tanggal_lahir"
+                name="birth_date"
                 type="date"
                 placeholder="Masukkan tanggal lahir Anda"
-                value={formData.tanggal_lahir}
-                onChange={handleChange}
-                required
+                value={formData.birth_date}
+                onChange={handleInputChange}
+                error={errors.birth_date}
               />
 
               <SelectField
                 label="Jenis Kelamin"
-                name="jenis_kelamin"
-                value={formData.jenis_kelamin}
-                onChange={handleChange}
-                options={options}
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                options={genderOptions}
                 placeholder="Pilih jenis kelamin"
-                required
+                error={errors.gender}
               />
             </div>
 
             <TextareaField
               label="Alamat Lengkap"
-              name="alamat_lengkap"
+              name="address"
               placeholder="Masukkan alamat lengkap Anda"
-              value={formData.alamat_lengkap}
-              onChange={handleChange}
-              required
+              value={formData.address}
+              onChange={handleInputChange}
+              error={errors.address}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InputField
                 label="No. HP / WhatsApp"
-                name="no_hp"
+                name="phone"
                 placeholder="Masukkan nomor HP / WhatsApp Anda"
-                value={formData.no_hp}
-                onChange={handleChange}
-                required
+                value={formData.phone}
+                onChange={handleInputChange}
+                error={errors.phone}
               />
               <InputField
                 label="Email Aktif"
@@ -150,123 +269,153 @@ const JobApply = () => {
                 type="email"
                 placeholder="Masukkan email aktif Anda"
                 value={formData.email}
-                onChange={handleChange}
+                onChange={handleInputChange}
+                error={errors.email}
                 required
               />
             </div>
 
-            <div className="flex flex-col gap-1 mt-12">
-              <h2 className="text-[15px] md:text-2xl font-semibold text-[#000405]">
-                Data Lamaran
-              </h2>
-              <p className="text-[#000405]/60">
-                Isi data lamaran Anda dengan lengkap.Isi data lamaran Anda dengan lengkap.
-              </p>
-              <hr className="border-[#FFC107]/80 mb-6" />
-            </div>
-
-            <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InputField
-                label="Posisi yang Dilamar"
-                name="posisi_dilamar"
-                placeholder="Pilih posisi yang ingin anda lamar"
-                value={formData.posisi_dilamar}
-                onChange={handleChange}
-                required
+                label="Tahun Kelulusan"
+                name="graduation_year"
+                type="number"
+                placeholder="Contoh: 2024"
+                value={formData.graduation_year}
+                onChange={handleInputChange}
+                error={errors.graduation_year}
               />
               <InputField
-                label="Alamat Perusahaan"
-                name="alamat_perusahaan"
-                placeholder="Ketikkan alamat perusaan yang membuka lowongan"
-                value={formData.alamat_perusahaan}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Pengalaman Kerja"
-                name="pengalaman_kerja"
-                placeholder="Ketikkan pengalaman kerja Anda"
-                value={formData.pengalaman_kerja}
-                onChange={handleChange}
-              />
-              <TextareaField
-                label="Alasan Melamar"
-                  name="alasan_melamar"
-                  placeholder="Ketikkan alasan Anda melarmar bidang pekerjaan tersebut "
-                  value={formData.alasan_melamar}
-                  onChange={handleChange}
-                  required
-              />        
-            </div>
-
-            <div className="flex flex-col gap-1 mt-12">
-              <h2 className="text-[15px] md:text-2xl font-semibold text-[#000405]">
-                Dokumen Pendukung
-              </h2>
-              <p className="text-[#000405]/60">
-                Isi dokumen lamaran Anda dengan lengkap.
-              </p>
-              <hr className="border-[#FFC107]/80 mb-6" />
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <FileInput
-                label="Upload CV / Resume"
-                name="cv_resume"
-                required
-                accept=".pdf,.doc,.docx"
-                onChange={handleChange}
-              />
-              <FileInput
-                label="Upload Ijazah / Sertifikat"
-                name="ijazah_sertifikat"
-                required
-                accept=".pdf, image/*"
-                onChange={handleChange}
-              />
-              <FileInput
-                label="Upload Foto"
-                name="foto"
-                required
-                accept="image/*"
-                onChange={handleChange}
-              />
-              <FileInput
-                label="Surat Lamaran"
-                name="surat_lamaran"
-                required
-                accept=".pdf, .doc, .docx"
-                onChange={handleChange}
+                label="IPK / Nilai Rata-rata"
+                name="gpa"
+                type="number"
+                step="0.01"
+                placeholder="Contoh: 85.5"
+                value={formData.gpa}
+                onChange={handleInputChange}
+                error={errors.gpa}
               />
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-5 bg-white rounded-[10px] gap-3">
-            <label className="flex items-center gap-2 cursor-pointer select-none text-[20px] text-[#857885]">
+          {/* Data Lamaran */}
+          <div className="flex flex-col gap-1 mt-12">
+            <h2 className="text-[15px] md:text-2xl font-semibold text-[#000405]">
+              Data Lamaran
+            </h2>
+            <p className="text-[#000405]/60">
+              Isi data lamaran Anda dengan lengkap.
+            </p>
+            <hr className="border-[#FFC107]/80 mb-6" />
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <InputField
+              label="Pengalaman Kerja"
+              name="work_experience"
+              placeholder="Ketikkan pengalaman kerja Anda (Opsional)"
+              value={formData.work_experience}
+              onChange={handleInputChange}
+              error={errors.work_experience}
+            />
+            
+            <TextareaField
+              label="Alasan Melamar"
+              name="apply_reason"
+              placeholder="Ketikkan alasan Anda melamar bidang pekerjaan tersebut (minimal 20 karakter)"
+              value={formData.apply_reason}
+              onChange={handleInputChange}
+              error={errors.apply_reason}
+              required
+            />
+          </div>
+
+          {/* Dokumen Pendukung */}
+          <div className="flex flex-col gap-1 mt-12">
+            <h2 className="text-[15px] md:text-2xl font-semibold text-[#000405]">
+              Dokumen Pendukung
+            </h2>
+            <p className="text-[#000405]/60">
+              Upload dokumen lamaran Anda dengan lengkap.
+            </p>
+            <hr className="border-[#FFC107]/80 mb-6" />
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <FileInput
+              label="Upload CV / Resume"
+              name="resume"
+              required
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileInputChange}
+              error={errors.resume}
+              helperText="Format: PDF, DOC, DOCX (Max: 5MB)"
+            />
+            
+            <FileInput
+              label="Upload Ijazah / Sertifikat"
+              name="certificate"
+              accept=".pdf,image/*"
+              onChange={handleFileInputChange}
+              error={errors.certificate}
+              helperText="Format: PDF, JPG, PNG (Max: 5MB)"
+            />
+            
+            <FileInput
+              label="Upload Foto"
+              name="photo"
+              accept="image/*"
+              onChange={handleFileInputChange}
+              error={errors.photo}
+              helperText="Format: JPG, PNG (Max: 5MB)"
+            />
+            
+            <FileInput
+              label="Surat Lamaran"
+              name="cover_letter"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileInputChange}
+              error={errors.cover_letter}
+              helperText="Format: PDF, DOC, DOCX (Max: 5MB)"
+            />
+          </div>
+
+          {/* Agreement & Submit */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-5 bg-white rounded-[10px] gap-3 mt-8">
+            <label className="flex items-center gap-2 cursor-pointer select-none text-[16px] text-[#857885]">
               <input
                 type="checkbox"
-                checked={formData.publish}
-                onChange={() =>
-                  setFormData((prev) => ({ ...prev, publish: !prev.publish }))
-                }
+                checked={formData.agreement}
+                onChange={(e) => handleChange('agreement', e.target.checked)}
                 className="hidden"
               />
               <span className="text-xl">
-                {formData.publish ? (
-                  <IoSquareOutline className="text-[#FFC107]" />
-                ) : (
+                {formData.agreement ? (
                   <FaCheckSquare className="text-[#FFC107]" />
+                ) : (
+                  <IoSquareOutline className="text-[#D2D2D2]" />
                 )}
               </span>
               Saya menyatakan data yang saya isi benar.
             </label>
+            {errors.agreement && (
+              <p className="text-red-500 text-sm">{errors.agreement}</p>
+            )}
 
             <div className="flex gap-3 self-end sm:self-auto">
-              <button className="border border-yellow-400 text-yellow-500 px-6 py-2 rounded-md hover:bg-yellow-400 hover:text-white transition">
+              <button
+                type="button"
+                onClick={handleReset}
+                className="border border-yellow-400 text-yellow-500 px-6 py-2 rounded-md hover:bg-yellow-400 hover:text-white transition"
+              >
                 Reset data
               </button>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-2 rounded-lg font-medium transition">
-                Kirim Lamaran
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-2 rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Mengirim...' : 'Kirim Lamaran'}
               </button>
             </div>
           </div>

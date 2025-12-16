@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axiosClient from "@/api/axiosClient";
 
 // Simple auth hook to separate logic; replace API calls with real endpoints
 export default function useAuth() {
@@ -7,58 +8,60 @@ export default function useAuth() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const login = async ({ email, password, remember }) => {
-    setLoading(true);
-    setError(null);
-    try {
-      if (!email || !password) throw new Error("Email dan password harus diisi");
+  const login = async ({ email, password }) => {
+  setLoading(true);
+  setError(null);
 
-      // POST JSON to /api/login
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      });
-
-      if (!res.ok) {
-        // try parse error message
-        let errMsg = res.statusText;
-        try {
-          const body = await res.json();
-          if (body && body.message) errMsg = body.message;
-        } catch (e) {
-          // ignore
-        }
-        throw new Error(errMsg || `Login failed: ${res.status}`);
-      }
-
-      const data = await res.json();
-
-      // expect { token, user } or similar
-      const token = data.token || data.access_token || data?.data?.token;
-      if (!token) throw new Error("Token tidak ditemukan dalam respon");
-
-      if (remember) localStorage.setItem("bkk_token", token);
-      else sessionStorage.setItem("bkk_token", token);
-
-      // redirect to home
-      navigate("/");
-      return data;
-    } catch (err) {
-      setError(err.message || "Terjadi kesalahan saat login");
-      throw err;
-    } finally {
-      setLoading(false);
+  try {
+    if (!email || !password) {
+      throw new Error("Email dan password harus diisi");
     }
-  };
 
-  const logout = () => {
-    localStorage.removeItem("bkk_token");
-    sessionStorage.removeItem("bkk_token");
-    navigate("/login");
-  };
+    const res = await axiosClient.post("/login", {
+      email,
+      password,
+    });
 
-  const isAuthenticated = () => Boolean(localStorage.getItem("bkk_token") || sessionStorage.getItem("bkk_token"));
+    const token =
+      res.data?.token ||
+      res.data?.access_token ||
+      res.data?.data?.token;
+
+    const user =
+      res.data?.user ||
+      res.data?.data?.user;
+
+    if (!token) {
+      console.error("LOGIN RESPONSE:", res.data);
+      throw new Error("Token tidak ditemukan dari response API");
+    }
+
+    // ✅ SELALU localStorage
+    localStorage.setItem("token", token);
+
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+
+    navigate("/admin");
+    return res.data;
+  } catch (err) {
+    setError(err.message || "Terjadi kesalahan saat login");
+    throw err;
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+ const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  navigate("/login");
+};
+
+
+  const isAuthenticated = () => Boolean(localStorage.getItem("token"));
 
   // --- Signup and password reset (demo implementations using localStorage) ---
   const _getUsers = () => JSON.parse(localStorage.getItem("bkk_users") || "[]");

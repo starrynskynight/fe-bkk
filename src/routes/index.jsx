@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
         element: <JobDetailPage />
       },
       {
-        path: "lowongan/lamar",
+        path: "lowongan/:id/lamar",
         element: <JobApply />
       },
       {
@@ -106,6 +106,8 @@ export const router = createBrowserRouter([
       {
         path: "forgot/reset",
         element: <ResetPassword/>
+      },
+      {
         path: "kontak",
         element: <ContactPage/>
       }
