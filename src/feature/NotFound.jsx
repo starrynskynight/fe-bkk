@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import NotFoundImg from "/images/notfoundbkk.png";
 
 const NotFound = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white text-center px-4">
       <img
-        src={NotFoundImg}
+        src="/images/notfoundbkk.png"
         alt="404 Not Found"
         className="w-[380px] sm:w-[420px] mb-6"
       />
