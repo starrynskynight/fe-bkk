@@ -5,7 +5,7 @@ import InputFieldAdmin from "@/components/common/InputFieldAdmin";
 import SelectField from "@/components/common/SelectField";
 import Button from "@/components/common/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import TextAreaField from "@/components/common/TextAreaField";
+import TextareaField from "@/components/common/TextareaField";
 import dataGallery from "../data/gallery.json"
 import { Icon } from "@iconify/react";
 
@@ -132,7 +132,7 @@ const GalleryEditAdmin = () => {
             required
           />
 
-          <TextAreaField
+          <TextareaField
             label="Deskripsi Gallery"
             name="description"
             placeholder="Masukkan deskripsi gallery"
